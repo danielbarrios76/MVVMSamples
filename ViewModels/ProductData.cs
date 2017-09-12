@@ -94,7 +94,7 @@ namespace ViewModels
 
         #endregion
 
-        public event Action<object, MessageEventArgs> MessageEvent;
+        public event Action<object, MessageEventArgs> MessageEvent; //este es el evento que va a la vista
 
         #region Metodos
 
