@@ -43,6 +43,7 @@
     <Compile Include="BaseModels.cs" />
     <Compile Include="ProductData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RelayCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">

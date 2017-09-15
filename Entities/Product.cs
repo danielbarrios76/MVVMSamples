@@ -7,6 +7,5 @@
         public decimal UnitPrice { get; set; }
         public int UnitsInStock { get; set; }
         public int CategoryID { get; set; }
-
     }
 }

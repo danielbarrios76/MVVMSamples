@@ -18,15 +18,23 @@
 
         <StackPanel>
             <StackPanel Margin="5">
-                <TextBlock Text="INTERFACE SAMPLE" HorizontalAlignment="Center"/>
+                <TextBlock Text="MVVM SAMPLE" HorizontalAlignment="Center"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="ID de producto: " Width="100" Margin="5"/>
-                <TextBox x:Name="tbSearchProductID" Width="50" Margin="5" />
-                <Button x:Name="btnSearch" Content="Buscar" Width="100" 
-                        Click="btnSearch_Click" Margin="5"/>
-                <Button x:Name="btnClear" Content="Limpiar" Width="100" 
-                         Margin="5"/>
+                <TextBox x:Name="tbSearchProductID" Width="50" Margin="5" 
+                         Text="{Binding SearchProductID}"/>
+                
+                <Button Content="Buscar" 
+                        Width="100" 
+                        CommandParameter="{Binding SearchProductID}" 
+                        Command="{Binding CommandSearch}" 
+                        Margin="5"/>
+                <Button Content="Limpiar" 
+                        Width="100" 
+                        CommandParameter="{Binding ProductName}" 
+                        Command="{Binding CommandClear}" 
+                        Margin="5"/>
             </StackPanel>
             <StackPanel Margin="5">
                 <StackPanel Orientation="Horizontal" Margin="5">

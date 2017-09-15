@@ -8,25 +8,29 @@ namespace WPFApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        ViewModels.ProductData VM; //esto nomme gusta como quedo
-
+        
         public MainWindow()
         {
             InitializeComponent();
-            btnClear.Click += btnClear_Click;
+            //btnClear.Click += btnClear_Click;
 
-            VM = this.DataContext as ViewModels.ProductData;
-            VM.MessageEvent += (s, ev) => MessageBox.Show(ev.Message); //y aca se suscribe a ese evento
+            ViewModels.ProductData VM = this.DataContext as ViewModels.ProductData;
+            VM.MessageEvent += (s, ev) =>
+            {
+               var result = MessageBox.Show(ev.Message, "Titulo", MessageBoxButton.YesNoCancel); 
+                ev.Result = (int)result;
+            };
         }
 
-        private void btnSearch_Click(object sender, RoutedEventArgs e)
-        {          
-            VM.GetProductByID(Convert.ToInt16(tbSearchProductID.Text));
-        }
+        //private void btnSearch_Click(object sender, RoutedEventArgs e)
+        //{          
+        //    ViewModels.ProductData VM = this.DataContext as ViewModels.ProductData;
+        //    VM.GetProductByID(Convert.ToInt16(tbSearchProductID.Text));
+        //}
 
-        private void btnClear_Click(object sender, RoutedEventArgs e)
-        {
-            this.DataContext = new ViewModels.ProductData();
-        }
+        //private void btnClear_Click(object sender, RoutedEventArgs e)
+        //{
+        //    this.DataContext = new ViewModels.ProductData();
+        //}
     }
 }
